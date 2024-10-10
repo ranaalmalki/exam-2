@@ -42,7 +42,7 @@ const handleSubmit =(e)=>{
         if(user){
             alert("wellcom")
             setUser(user.username)
-            nevigate("/")
+            nevigate("/home")
         }else{
 alert("invild")
         }

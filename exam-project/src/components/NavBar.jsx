@@ -32,7 +32,7 @@ function NavBar() {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><a>Home</a></li>
         <li>
-          <a>book</a>
+          <Link to="/book">book</Link>
         
         </li>
         <li><a>Item 3</a></li>
@@ -47,7 +47,7 @@ function NavBar() {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
+      <li><Link to="/">Home</Link></li>
       <li>
      
           <Link to="/book">book</Link>
@@ -65,7 +65,7 @@ function NavBar() {
     {user?(<div>
 
 Wellcom ,{user}
-<Link to="/">Logout</Link>
+<Link to="/" className="btn bg-[#4051e1] text-white">Logout</Link>
 
     </div>):(
 
