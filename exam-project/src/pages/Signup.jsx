@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import bookhome from "../assets/bookhome.svg"
 
 function Signup() {
     const [formSignUp,setFormSignUp]=useState({
@@ -59,10 +60,13 @@ const handleSubmit=(e)=>{
 
 
   return (
-    <div>
-        
-
-       <form onSubmit={handleSubmit}>
+    <div className=" flex justify-center p-40">
+    <div className="card border border-blue-700 w-96">
+        <div className="card-body w-full text-center">
+            <h1 className=" bg-[#4051e1] text-white text-2xl rounded-badge p-3">
+                Sign up             
+            </h1>
+       <form onSubmit={handleSubmit} className="flex flex-wrap flex-col justify-center p-10 gap-4">
 <label className="input input-bordered flex items-center gap-2">
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -101,11 +105,20 @@ const handleSubmit=(e)=>{
   <input type="password" className="grow"  onChange={passwordinput} value={formSignUp.password} required/>
 </label>
 
-<button type="submit" className="btn btn-outline">Sign up</button>
+<button type="submit"  className="btn bg-[#dbdd80]">Sign up</button>
+<div>
+<span>  have Account please Login </span>
+
+<Link to="/login"className="text-blue-800 font-bold hover:text-indigo-400">Login</Link>
+
+</div>
 </form>
-<Link to="/login"className="btn btn-outline">Login</Link>
+</div>
+</div>
+<img
 
-
+src={bookhome}
+/>
     </div>
   )
 }
