@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import NavBar from '../components/NavBar'
+import { Link } from 'react-router-dom'
 
 
 function Book() {
@@ -18,7 +19,7 @@ function Book() {
             console.log(error);
           })
 
-    })
+    },[])
 
   return (
     <div>
@@ -28,9 +29,11 @@ function Book() {
     return( 
 <div className="card bg-base-100 w-96 shadow-xl" key={index}>
   <figure>
+    <Link to={`/bookdetails/${index}`}>
     <img
       src={book.book_image}
       alt="Book" />
+      </Link>
   </figure>
   <div className="card-body">
     <h2 className="card-title">{book.title}</h2>
