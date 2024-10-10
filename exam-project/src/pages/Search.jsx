@@ -25,7 +25,7 @@ function Search() {
 
                 )
                 if(booktitle){
-                    alert("yes")
+                    alert("ues")
                 }else{
         alert("invild")
                 }

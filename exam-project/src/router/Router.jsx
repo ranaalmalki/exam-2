@@ -5,6 +5,8 @@ import Signup from "../pages/Signup"
 import HomePage from "../pages/HomePage"
 import Book from "../pages/Book"
 import Book_Details from "../pages/Book_Details"
+import Favorites from "../pages/Favorites "
+import Read_Books from "../pages/Read_Books"
 
 const  Router= createBrowserRouter([
 
@@ -32,6 +34,15 @@ const  Router= createBrowserRouter([
     {
         path:"/bookdetails/:id",
         element:<Book_Details/>
+    },
+
+    {
+        path:"/faviorites/:id",
+        element:<Favorites/>
+    },
+    {
+        path:"/readbook/:id",
+        element:<Read_Books/>
     },
 ]) 
 

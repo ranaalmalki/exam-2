@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "../usercontext/UserContext"
 import { Link } from "react-router-dom"
 import Search from "../pages/Search"
+import bookhome from "../assets/bookhome.svg"
 
 function NavBar() {
     const {user}=useContext(UserContext)
@@ -9,7 +10,7 @@ function NavBar() {
   return (
     <div>
 
-<div className="navbar bg-base-100">
+<div className="navbar bg-[#dbdd80]">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,27 +33,25 @@ function NavBar() {
         <li><a>Home</a></li>
         <li>
           <a>book</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
+        
         </li>
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl text-[#4051e1]"><img
+    
+    src={bookhome}
+    className="h-9"
+    alt="logo"
+    />Book Store</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><a>Home</a></li>
       <li>
-        <details>
-          <summary>book</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
+     
+          <Link to="/book">book</Link>
+    
       </li>
       <li><a>userpage</a></li>
     </ul>
