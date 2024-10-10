@@ -46,6 +46,7 @@ const handleSubmit=(e)=>{
         password:formSignUp.password
 
     }).then((res)=>{
+        alert("thankyou")
         console.log(res.data);
         
     }) .catch( (error)=> {
@@ -100,8 +101,9 @@ const handleSubmit=(e)=>{
   <input type="password" className="grow"  onChange={passwordinput} value={formSignUp.password} required/>
 </label>
 
-<Link to="/login"><button type="submit">Sign up</button></Link>
+<button type="submit" className="btn btn-outline">Sign up</button>
 </form>
+<Link to="/login"className="btn btn-outline">Login</Link>
 
 
     </div>

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../usercontext/UserContext"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Login() {
     const {setUser}=useContext(UserContext)
@@ -34,18 +34,21 @@ const handleSubmit =(e)=>{
     axios.get(url)
     .then((res)=>{
         console.log(res.data);
-        const user =res.data.find((user)=>{
-            user.username === username  && user.password === password
+        const user =res.data.find((user)=>
+            user.username === formLogin.username  && user.password === formLogin.password
 
-        })
+        )
         if(user){
             alert("wellcom")
+            setUser(user.username)
             nevigate("/")
         }else{
 alert("invild")
         }
         
-    })
+    }).catch(function (error) {
+        console.log(error);
+      })
 
 }
 
@@ -79,6 +82,8 @@ alert("invild")
 </label>
 <button type="submit">Log in</button>
 </form>
+<span>new account</span>
+<Link to="/signup"><button type="button">signUp</button></Link>
     </div>
   )
 }
