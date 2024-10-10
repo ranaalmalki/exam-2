@@ -1,11 +1,51 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 
 function Search() {
+    const [books , setBooks ]=useState([])
+    const [inputSearch,setiInputSearch]=useState("")
+
+    const serchinput=(e)=>{
+        setiInputSearch(e.target.value)
+
+    }
+    // useEffect(()=>{
+        const searchhandle=(e)=>{
+            e.preventDefault()
+
+            const apikey="MnjGnhUOKLOCiSAf3Gs6Sv1bjtJKVb93"
+            const url=`https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=${apikey}`
+            axios.get(url)
+            .then((res)=>{
+                console.log(res.data.results.books);
+    
+                setBooks(res.data.results.books)
+                const booktitle =books.filter((findbook)=>
+                    findbook.title === inputSearch 
+
+                )
+                if(booktitle){
+                    alert("yes")
+                }else{
+        alert("invild")
+                }
+
+            }).catch( (error)=> {
+                console.log(error);
+              })
+
+
+             
+            }
+       
+
+    
   return (
     <div>
 
 <label className="input input-bordered flex items-center gap-2">
-  <input type="text" className="grow" placeholder="Search" />
+  <input type="text" className="grow" placeholder="Search" onChange={serchinput} value={inputSearch}/>
+  <button onClick={searchhandle}>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -16,6 +56,7 @@ function Search() {
       d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
       clipRule="evenodd" />
   </svg>
+  </button>
 </label>   
     </div>
   )
